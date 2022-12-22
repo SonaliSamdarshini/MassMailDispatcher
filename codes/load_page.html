@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css" />
+</head>
+<style>
+    body {
+        background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+    }
+</style>
+<style>
+
+    .typedtext {
+        position: relative;
+        top: 50%;
+        font-family: 'Waiting for the Sunrise', cursive;
+        font-size: 30px;
+        /* margin: 10px 50px; */
+        letter-spacing: 6px;
+        width: 24em;
+        margin: 0 auto;
+        font-weight: bold;
+        color: wheat;
+        text-align: center;
+    }
+</style>
+<style>
+    .buttons {
+        position: relative;
+        top: 50%;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .buttons button {
+        width: 200px;
+        margin-bottom: 20px;
+        padding: 8px;
+        border-radius: 25px;
+        cursor: pointer;
+        color: white;
+        border-color: white;
+        font-weight: bold;
+        background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+    }
+
+    .buttons a {
+        margin-right: 40px;
+    }
+</style>
+
+<body>
+    <!-- <p class="line-1 anim-typewriter">Exposys Data lab</p>
+    <p class="line-1 anim-typewriter">MASS MAIL DISPATCHER</p> -->
+    <div class="typedtext"></div>
+    <div class="buttons">
+        <a href="mass_mail_dispatcher.html">
+            <button>Mail Dispatcher</button>
+        </a>
+    </div>
+
+
+    <script>
+        // set up text to print, each item in array is new line
+        var aText = new Array(
+            "EXPOSYS DATA LAB", 
+            "MASS-MAIL DISPATCHER", 
+            "A WEB BASED APPLICATION DEVELOPED USING HTML CSS JAVASCRIPT",
+            "Functioning goes like this: ",
+            "1.UPLOAD CSV FILE WHICH CONTAINS BULK EMAILS",
+            "2. VALIDATE AND PURIFY THE EMAILS",
+            "3.FETCH THE VALIDATED EMAILS", 
+            "SENDS THE BULK EMAIL AT ONE SHOT"
+        );
+        var iSpeed = 100; // time delay of print out
+        var iIndex = 0; // start printing array at this posision
+        var iArrLength = aText[0].length; // the length of the text array
+        var iScrollAt = 20; // start scrolling up at this many lines
+
+        var iTextPos = 0; // initialise text position
+        var sContents = ''; // initialise contents variable
+        var iRow; // initialise current row
+
+        function typewriter() {
+            sContents = ' ';
+            iRow = Math.max(0, iIndex - iScrollAt);
+            var destination = document.querySelector(".typedtext");
+
+            while (iRow < iIndex) {
+                sContents += aText[iRow++] + '<br />';
+            }
+            destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+            if (iTextPos++ == iArrLength) {
+                iTextPos = 0;
+                iIndex++;
+                if (iIndex != aText.length) {
+                    iArrLength = aText[iIndex].length;
+                    setTimeout("typewriter()", 500);
+                }
+            } else {
+                setTimeout("typewriter()", iSpeed);
+            }
+        }
+
+
+        typewriter();
+
+    </script>
+</body>
+
+</html>

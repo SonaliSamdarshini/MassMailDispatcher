@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Navigation bar </title>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+</head>
+
+
+
+</head>
+
+
+<!-- social media icons -->
+<style>
+    #lab_social_icon_footer {
+        padding: 40px 0;
+        /* background-color: #dedede; */
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    }
+
+    #lab_social_icon_footer a {
+        color: #333;
+    }
+
+    #lab_social_icon_footer .social:hover {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1.1);
+    }
+
+    #lab_social_icon_footer .social {
+        -webkit-transform: scale(0.8);
+        /* Browser Variations: */
+        -moz-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -o-transition-duration: 0.5s;
+    }
+
+    /*
+    Multicoloured Hover Variations
+*/
+
+    #lab_social_icon_footer #social-fb:hover {
+        color: #3B5998;
+    }
+
+    #lab_social_icon_footer #social-tw:hover {
+        color: #4099FF;
+    }
+
+    #lab_social_icon_footer #social-em:hover {
+        color: #f39c12;
+    }
+
+    #lab_social_icon_footer #social-in:hover {
+        color: #8a3ab9;
+    }
+
+    #lab_social_icon_footer #social-li:hover {
+        color: #0072b1;
+    }
+</style>
+
+
+
+
+<style>
+    body {
+        font-family: "Roboto", Helvetica, Arial, sans-serif;
+        font-weight: 100;
+        font-size: 12px;
+        /* line-height: 30px; */
+        color: #777;
+        /* background: blanchedalmond; */
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+    }
+</style>
+
+<!-- style for mail_sender -->
+<style>
+    .loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background: rgb(0, 0, 0);
+        display: none;
+    }
+
+
+    .container {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea,
+    #contact button[type="submit"] {
+        font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+    }
+
+    #contact {
+        background: #F9F9F9;
+        padding: 25px;
+        /* margin: 150px 0; */
+        margin-top: 50px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    #contact h3 {
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+
+    #contact h4 {
+        margin: 5px 0;
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    fieldset {
+        border: medium none !important;
+        margin: 0 0 10px;
+        min-width: 100%;
+        padding: 0;
+        width: 100%;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+    }
+
+    #contact input[type="text"]:hover,
+    #contact input[type="email"]:hover,
+    #contact input[type="tel"]:hover,
+    #contact input[type="url"]:hover,
+    #contact textarea:hover {
+        -webkit-transition: border-color 0.3s ease-in-out;
+        -moz-transition: border-color 0.3s ease-in-out;
+        transition: border-color 0.3s ease-in-out;
+        border: 1px solid #aaa;
+    }
+
+    #contact textarea {
+        height: 100px;
+        max-width: 100%;
+        resize: none;
+    }
+
+    #contact button[type="submit"] {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #4CAF50;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    #contact button[type="submit"]:hover {
+        background: #43A047;
+        -webkit-transition: background 0.3s ease-in-out;
+        -moz-transition: background 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    #contact button[type="submit"]:active {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    #contact input:focus,
+    #contact textarea:focus {
+        outline: 0;
+        border: 1px solid #aaa;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #888;
+    }
+
+    :-moz-placeholder {
+        color: #888;
+    }
+
+    ::-moz-placeholder {
+        color: #888;
+    }
+
+    :-ms-input-placeholder {
+        color: #888;
+    }
+</style>
+
+<!-- style for navigation links -->
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+
+
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 8vh;
+        font-family: 'Baloo Bhai 2', cursive;
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+        /* background-color: rgb(179, 95, 95); */
+        /* padding: 12px;
+    margin: 10px 2px; */
+    }
+
+
+    /* .logo {
+        color: black;
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 30px;
+    } */
+
+
+    .nav-links {
+        display: flex;
+        justify-content: space-around;
+        width: 30%;
+    }
+
+    .logo button {
+        overflow: hidden;
+        border: none;
+        font-size: 20px;
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+        color: black;
+        font-weight: bold;
+        letter-spacing: 2.5px;
+    }
+
+    .nav-links button {
+        overflow: hidden;
+        border: none;
+        font-size: 20px;
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+        color: black;
+        font-weight: bold;
+        letter-spacing: 2.5px;
+    }
+
+    @media screen and (max-width:1024px) {
+        .nav-links {
+            width: 60%;
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        .nav-links {
+            position: absolute;
+            left: 0px;
+            height: 92vh;
+            top: 8vh;
+            background-color: #8EC5FC;
+            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            transform: translateX(50%);
+            transition: transform 0.5s ease-in;
+        }
+    }
+</style>
+
+<!-- style for table -->
+<style>
+    table {
+        /* border-collapse: collapse; */
+        /* width: 100%; */
+        margin-left: auto;
+        margin-right: auto;
+        /* border: 1px solid #ddd; */
+        padding: 8px;
+    }
+
+    td {
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        width: 100%;
+        padding: 8px;
+        text-align: center;
+        -ms-text-size-adjust: 100%;
+    }
+
+    th {
+        background-color: #04AA6D;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #f2f2f2;
+        text-transform: uppercase;
+    }
+
+    table.alignit {
+        display: flex;
+    }
+</style>
+
+
+<!-- style for upload files -->
+
+<style>
+    .fileName {
+        margin: 20px;
+        color: rgb(255, 255, 255);
+        display: inline;
+        padding: 15px;
+        border-radius: 25px;
+        cursor: pointer;
+        background-color: #737275;
+        border: none;
+        width: 220px;
+    }
+
+    .file-search-button {
+        margin-left: 50px;
+        margin-top: 60px;
+    }
+
+
+    .fa fa-search {
+        margin: 0;
+    }
+
+    .custom-file-upload {
+        color: rgb(255, 255, 255);
+        display: inline;
+        padding: 15px;
+        border-radius: 25px;
+        cursor: pointer;
+        background-color: #7a166d;
+        border: none;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+</style>
+
+<!-- toast styling -->
+<style>
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        width: 400px;
+        margin-left: -125px;
+        background-color: green;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+    }
+
+    #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @-webkit-keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+</style>
+
+
+
+<!--  Styling the contents  -->
+<style>
+    .about_mail_delivery h2 {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 40px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .about_mail_delivery p {
+        margin-top: 20px;
+        margin-left: 80px;
+        margin-right: 80px;
+        color: black;
+        font-size: 20px;
+    }
+</style>
+
+
+<body>
+
+    <!-- Launch on sucessessful mail send -->
+    <div class="loader">
+        <img src="https://media.giphy.com/media/MEiZ5h8lOkM7rwideE/giphy.gif" alt="" />
+    </div>
+    <nav>
+        <div class="logo">
+            <button class="button" id="show_about_mass_mail">MASS MAIL DISPATCHER</button>
+        </div>
+        <div class="nav-links">
+            <a href="load_page.html">
+                <button> Home</button>
+            </a>
+            <!-- // <button class="button" id="home" type="button_page">Home</button> -->
+            <button class="button" id="upload_file">Upload</button>
+            <button class="button" id="show_ALl_email">Emails</button>
+            <button class="button" id="Show_Valid_Email">Valid</button>
+            <button class="button" id="Show_Invalid_Email">Invalid</button>
+            <button class="button" id="Send_Mail">Send</button>
+        </div>
+    </nav>
+    <div class="about_mail_delivery">
+
+        <h2>About Mass Mail Delivery</h2>
+        <p>Mass/Bulk Email providers are used to send emails in very large quantities. The emails can be sent by the
+            SMTP protocol (Simple Mail Transfer Protocol), or can be invoked via API or web interfaces. <br><br> List of
+            Top Email Blast Services are:<br><br>
+            1: Elstic Email<br>
+            2: Sendinblue<br>
+            3: Constant Contact<br>
+            4: Mass Mail Software<br>
+            5: GetResponse<br>
+            6: SMTP2GO<br>
+            7: Mail Marketer<br>
+            8: Cakemail<br>
+            9: ZeptoMail<br>
+            10: MailerSend<br>
+            11. EmailJS,etc.....<br><br>
+            We had used Emailjs in our project to send mass mail to all the valid emails which we get by filtering the
+            emails using the regular expression and removing the invalid emails from the bulk of emails provided</p>
+
+    </div>
+
+    <!-- table content -->
+    <div class="alignit">
+        <div>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th id="col1"></th>
+                    </tr>
+                </thead>
+                <tbody id="tabledata"></tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- upload file content -->
+    <div class="xyz">
+    </div>
+
+
+    <div id="main">
+    </div>
+    <div id="main1">
+    </div>
+
+
+
+
+
+    <div class="container">
+    </div>
+    <div id="snackbar">Some text some message..</div>
+
+    <section id="lab_social_icon_footer">
+        <!-- Include Font Awesome Stylesheet in Header -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="container">
+            <div class="text-center center-block">
+                <a href="https://www.facebook.com/"><i id="social-fb"
+                        class="fa fa-facebook-square fa-3x social"></i></a>
+                <a href=" https://www.linkedin.com/"><i id="social-li" class="fa fa-linkedin fa-3x social"></i></a>
+                <a href="https://twitter.com/i/flow/login"><i id="social-tw"
+                        class="fa fa-twitter-square fa-3x social"></i></a>
+                <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                <a href="https://www.instagram.com/"></a><i id="social-in" class="fa fa-instagram fa-3x social"></i></a>
+                <h6 class="m-0 mt-4 text-center text-black text-capitalize">Copyright &copy; 2022 designed by Aman Singh
+                </h6>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        let a = [];
+        let b = [];
+        let c = [];
+
+        const hding = document.getElementById("col1");
+        const email_body = document.querySelector(".container");
+        var form1 = document.getElementById("main");
+        const upload_option = document.querySelector(".xyz");
+        let tableBody = document.getElementById('tabledata');
+        const body_content = document.querySelector(".about_mail_delivery");
+        const footer_el = document.getElementById('lab_social_icon_footer');
+
+        function loadtable(a) {
+            document.getElementById('table').style.visibility = "visible";
+            email_body.innerHTML = '';
+            body_content.innerHTML = '';
+            footer_el.innerHTML = '';
+
+            let datahtml = '';
+
+            for (let e of a) {
+                datahtml += `<tr><td>${e}</td></tr>`;
+            }
+
+            tableBody.innerHTML = datahtml;
+            // table.innerHTML = "<span style='width:100%'></span>";
+            document.getElementById('table').style.width = "60%";
+
+
+        }
+
+
+        function to_upload_emails() {
+            document.getElementById('table').style.visibility = "hidden";
+            body_content.innerHTML = '';
+            hding.innerHTML = '';
+            tableBody.innerHTML = '';
+            email_body.innerHTML = '';
+            footer_el.innerHTML = '';
+
+            const upload_el = document.querySelector(".xyz");
+            upload_el.innerHTML =
+                ` <div class="file-search-button">
+          <label for="file-upload" class="custom-file-upload">
+            <i class="fa fa-search"></i> BROWSE FOR A FILE
+          </label>
+          <input id="file-upload" type="file" accept=".csv"/>
+          <div class="fileName">
+          <a>NO FILE SELECTED</a>
+        </div>
+        </div>
+        
+        `;
+
+
+
+            document.getElementById('main1').appendChild(upload_el);
+            testing();
+        }
+
+
+        function emailform() {
+            document.getElementById('table').style.visibility = "hidden";
+            body_content.innerHTML = '';
+            hding.innerHTML = '';
+            tableBody.innerHTML = '';
+            footer_el.innerHTML = '';
+            const formel = document.querySelector('.container');
+            // formel.classList.add('container1');
+            formel.innerHTML = `
+            <form id="contact" method="post">
+            <h3>Mass Mail Sender</h3>
+            <h4>Sending custom mail to all the valid email's in the csv file after removing the invalid one's </h4>
+            <fieldset>
+                <input placeholder="Subject" type="text" tabindex="1" required autofocus class="username" />
+            </fieldset>
+            <fieldset>
+                <textarea placeholder="Type your message here...." tabindex="5" required class="message"></textarea>
+            </fieldset>
+            <fieldset>
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="submit">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+            `;
+            document.getElementById('main').appendChild(formel);
+            validate();
+        }
+        function ValidateEmail(inputText) {
+            var mailformat = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/
+            c.push(inputText);
+            if (inputText.match(mailformat)) {
+                a.push(inputText);
+            } else {
+                b.push(inputText);
+            }
+        }
+        function show_contents() {
+            upload_option.innerHTML = "";
+            email_body.innerHTML = '';
+            hding.innerHTML = '';
+            tableBody.innerHTML = '';
+            const fill_with_project_detail = document.querySelector('.about_mail_delivery');
+            fill_with_project_detail.innerHTML = `
+            <h2>About Mass Mail Delivery</h2>
+    <p>Mass/Bulk Email providers are used to send emails in very large quantities. The emails can be sent by the SMTP protocol (Simple Mail Transfer Protocol), or can be invoked via API or web interfaces. <br><br> List of Top Email Blast Services are:<br><br>
+    1: Elstic Email<br>
+    2: Sendinblue<br>
+    3: Constant Contact<br>
+    4: Mass Mail Software<br>
+    5: GetResponse<br>
+    6: SMTP2GO<br>
+    7: Mail Marketer<br>
+    8: Cakemail<br>
+    9: ZeptoMail<br>
+    10: MailerSend<br>
+    11. EmailJS,etc.....<br><br>
+    We had used Emailjs in our project to send mass mail to all the valid emails which we get by filtering the emails using the regular expression and removing the invalid emails from the bulk of emails provided</p>
+            `;
+        }
+
+
+        const showing_content = document.getElementById('show_about_mass_mail').addEventListener('click', () => {
+            show_contents();
+        })
+
+        const validemail = document.getElementById("Show_Valid_Email").addEventListener("click", () => {
+            hding.innerHTML = "<h2>Valid  emails</h2>";
+            upload_option.innerHTML = "";
+            loadtable(a);
+
+        });
+        const invalidemail = document.getElementById("Show_Invalid_Email").addEventListener("click", () => {
+            hding.innerHTML = "<h2>InValid  emails</h2>";
+            upload_option.innerHTML = "";
+            loadtable(b);
+        });
+
+        const sendemail = document.getElementById("Send_Mail").addEventListener("click", () => {
+            upload_option.innerHTML = "";
+            emailform();
+        });
+
+
+        const upload_files = document.getElementById("upload_file").addEventListener("click", () => {
+            upload_option.innerHTML = "";
+            to_upload_emails();
+        });
+
+
+        const all_emails = document.getElementById("show_ALl_email").addEventListener("click", () => {
+            hding.innerHTML = "<h2>All  emails</h2>";
+            upload_option.innerHTML = "";
+            loadtable(c);
+        });
+
+        function testing() {
+            const fileName = document.querySelector(".fileName");
+
+            const fileInput = document.querySelector("input[type=file]");
+            fileInput.addEventListener("change", function () {
+                if (this.files && this.files[0]) {
+                    fileName.innerHTML = this.files[0].name;
+                    showToast("Your CSV file is uploaded");
+                    Papa.parse(this.files[0], {
+                        download: true,
+                        header: true,
+                        skipEmptyLines: true,
+                        complete: function (results) {
+                            for (i = 0; i < results.data.length; i++) {
+                                let email = results.data[i].EmailAddress;
+                                ValidateEmail(email);
+                            }
+                            console.log(c.length);
+                            console.log("////////////////////////////");
+                            console.log(a.length);
+                            console.log("////////////////////////////");
+                            console.log(b.length);
+                        }
+                    });
+                }
+                else {
+                    showToast("Upload again");
+                }
+            });
+        }
+        function showToast(content = "Unknown error") {
+            var x = document.getElementById("snackbar");
+            x.innerHTML = content;
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+
+    </script>
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script type="text/javascript">
+        //var a2 = ["abc@gmail.com"];
+
+        (function () {
+            // emailjs.init("USERID");
+            emailjs.init("2VqAdc9HS8p5NnPlH");
+        })();
+
+        function validate() {
+            let loader = document.querySelector(".loader");
+            let name = document.querySelector(".username");
+            let msg = document.querySelector(".message");
+            let form_submit = document.getElementById("contact");
+
+            form_submit.addEventListener("submit", (e) => {
+                e.preventDefault();
+                if (name.value == "" || msg.value == "") {
+                    emptyerror();
+                } else {
+                    loader.style.display = "flex";
+                    sendmail(name.value, msg.value);
+                    success();
+                    loader.style.display = "none";
+                }
+            });
+        }
+
+        function sendmail(sub, msg) {
+            for (let e = 0; e < 1; e++) {
+                emailjs.send("service_k67pt4m","template_yukcbjd", {
+                    to_name: a[e],
+                    from_name: sub,
+                    message: msg,
+                });
+            }
+        }
+
+        function emptyerror() {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Fields cannot be empty!",
+            });
+        }
+
+        function error() {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+            });
+        }
+
+        function success() {
+            Swal.fire({
+                icon: "success",
+                title: "Success...",
+                text: "Successfully sent message",
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
